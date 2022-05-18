@@ -5,6 +5,7 @@ var anObject = {
 
 console.log(anObject.age);
 console.log(anObject.valueOf());
+//revision 16/5/2022
 
 var a = 'Kelvin is ';
 var b = 'handsome';
@@ -19,11 +20,12 @@ function raise(x){
        }
     }
 }
+//learn about for loop 18/5/2022
 
 var p = 0 ;
 
     for ( let p = 0 ; p<10 ; p++){
       console.log('p = '+p);
-    }
-
+    } 
+// learn about the difference between let and var 18/5/2022
 
