@@ -1,0 +1,346 @@
+<html lang="en">
+    <head>
+        <!--make a conclusion,and what I learnt though this project-->
+        <meta charset="UTF-8">
+        <title>tic tac toe</title>
+        <style>
+            .block{
+                width: 10%;
+                height: 5%;
+                font-size: large;
+            }
+            input{
+                text-align: center;
+            }
+        </style>
+        <style type="text/css">
+            *{margin: 0;padding: 0;}
+                table{width: 600px;margin: 30px auto;}
+                table tr td{ width: 150px;height: 150px;text-align: center;line-height: 200px;}
+                td input[type=text]{width: 100%;height: 100%;text-align: center;font-size: 60px;}
+                #show{margin-bottom: 20px;}
+                .btn:hover {background: rgb(0, 0, 0);}
+            
+        </style>
+    </head>
+    <body bgcolor="grey">
+        <p style="font-size: x-large;text-align: center;" id="wf">first hand:</p>
+        <center><button class="block" onclick="whofirst()">draw</button></center>
+          <center><p style="font-size: x-large;">Enjoy!</p></center>
+            <center> <table align="center" cellspacing="0" cellpadding="0">
+                 <tbody>
+                     <tr>
+                         <td><input type="text" disabled name="" id="kone"  ></td>
+                         <td><input type="text" disabled name="" id="ktwo"  ></td>
+                         <td><input type="text" disabled name="" id="kthree"></td>
+                     </tr>
+                     <tr>
+                        <td><input type="text"  disabled name="" id="kfour" ></td>
+                        <td><input type="text"  disabled name="" id="kfive" ></td>
+                        <td><input type="text"  disabled name="" id="ksix"  ></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text"  disabled name="" id="kseven"></td>
+                        <td><input type="text"  disabled name="" id="keight"></td>
+                        <td><input type="text"  disabled name="" id="knine" ></td>
+                    </tr>
+                 </tbody>
+            </table>
+        </center>
+        <p style="font-size: x-large;text-align: center;" id="game over"></p>
+        <script>
+let A = 0;
+let B = 0;
+let C = 0;
+let D = 1;
+let E = 2;
+let F = 0;
+let x = 'X';
+let y = 'O';
+let aa = 0;
+let bb = 0;
+let cc = 0; 
+let dd = 0;
+let ee = 0;
+let ff = 0;
+let gg = 0;
+let hh = 0;
+let ii = 0;
+
+function whofirst() {
+    D = (Math.floor(Math.random()*2)+1)*1;    
+    document.getElementById("wf").innerHTML = "first hand:"+D;
+    E = 3 - D ;
+}
+
+document.addEventListener("keydown", function(event0) {
+    if (event0.keyCode > 1){
+      if ((F ==　8) && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Game Over";
+        C = C + 1;
+    } 
+}
+    if (event0.keyCode === 103){
+    if (B == 0 &&(aa == 0)) {
+        A = A+1;
+        B = A%2;
+        document.getElementById('kone').value = x;
+        aa =+ 1 ;
+        F =F + 1;
+    } else {
+        if (aa == 0){
+        A = A+1;
+        B = A%2;
+        document.getElementById('kone').value = y;
+        aa =+ 1 ;
+        F =F + 1;
+    }   
+}
+    }
+    if (event0.keyCode === 104){
+        if (B == 0 &&(bb == 0)) {
+        A = A+1;
+        B = A%2;
+        document.getElementById('ktwo').value = x;
+        bb =+ 1;
+        F =F + 1;
+    } else{
+        if (bb == 0){
+        A = A+1;
+        B = A%2;
+        document.getElementById('ktwo').value = y;
+        bb =+ 1;
+        F =F + 1;
+    }
+}
+    }   
+    if (event0.keyCode === 105){
+        if (B == 0 &&(cc == 0)) {
+        A = A+1;
+        B = A%2;
+        document.getElementById('kthree').value = x;
+        cc =+ 1;
+        F =F + 1;
+    } else{
+        if (cc == 0){
+        A = A+1;
+        B = A%2;
+        document.getElementById('kthree').value = y;
+        cc =+ 1;
+        F =F + 1;
+    }
+}
+    }
+    if (event0.keyCode === 100){
+        if (B == 0 &&(dd == 0)) {
+        A = A+1;
+        B = A%2;
+        document.getElementById('kfour').value = x;
+        dd =+ 1;
+        F =F + 1;
+    } else{
+        if (dd == 0){
+        A = A+1;
+        B = A%2;
+        document.getElementById('kfour').value = y;
+        dd =+ 1;
+        F =F + 1;
+    }
+}
+    }
+    if (event0.keyCode === 101){
+        if (B == 0 &&(ee == 0)) {
+        A = A+1;
+        B = A%2;
+        document.getElementById('kfive').value = x;
+        ee =+ 1;
+        F =F + 1;
+    } else{
+        if (ee == 0){
+        A = A+1;
+        B = A%2;
+        document.getElementById('kfive').value = y;
+        ee =+ 1;
+        F =F + 1;
+    }
+}
+    }
+    if (event0.keyCode === 102){
+        if (B == 0 &&(ff == 0)) {
+        A = A+1;
+        B = A%2;
+        document.getElementById('ksix').value = x;
+        ff =+ 1;
+        F =F + 1;
+    } else{
+        if (ff == 0){
+        A = A+1;
+        B = A%2;
+        document.getElementById('ksix').value = y;
+        ff =+ 1;
+        F =F + 1;
+    }
+}
+    }
+    if (event0.keyCode === 97){
+        if (B == 0 &&(gg == 0)) {
+        A = A+1;
+        B = A%2;
+        document.getElementById('kseven').value = x;
+        gg =+ 1;
+        F =F + 1;
+    } else{
+        if (gg == 0){
+        A = A+1;
+        B = A%2;
+        document.getElementById('kseven').value = y;
+        gg =+ 1;
+        F =F + 1;
+    }
+}
+    }
+    if (event0.keyCode === 98){
+        if (B == 0 &&(hh == 0)) {
+        A = A+1;
+        B = A%2;
+        document.getElementById('keight').value = x;
+        hh =+ 1;
+        F =F + 1;
+    } else {if (hh == 0){
+        A = A+1;
+        B = A%2;
+        document.getElementById('keight').value = y;
+        hh =+ 1;
+        F =F + 1;
+    }
+}
+    }
+    if (event0.keyCode === 99){
+        if (B == 0 &&(ii == 0)) {
+        A = A+1;
+        B = A%2;
+        document.getElementById('knine').value = x;
+        ii =+ 1;
+        F =F + 1;
+    } else {
+        if (ii == 0){
+        A = A+1;
+        B = A%2;
+        document.getElementById('knine').value = y;
+        ii =+ 1;
+        F =F + 1;
+        }
+    }
+    }
+    if (event0.keyCode >1){
+    var a,b,c,d,e,f,g,h,i;
+    a = document.getElementById('kone').value;
+    b = document.getElementById('ktwo').value;
+    c = document.getElementById('kthree').value;
+    d = document.getElementById('kfour').value;
+    e = document.getElementById('kfive').value;
+    f = document.getElementById('ksix').value;
+    g = document.getElementById('kseven').value;
+    h = document.getElementById('keight').value;
+    i = document.getElementById('knine').value;
+    if (a == "X" && b == "X" && c == "X" && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Player "+D+" win!";
+        C = C+1;
+    } 
+    if (d == "X" && e == "X" && f == "X" && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Player "+D+" win!";
+        C = C+1;
+    } 
+    if (g == "X" && h == "X" && i == "X" && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Player "+D+" win!";
+        C = C+1;
+    } 
+    if (a == "X" && d == "X" && g == "X" && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Player "+D+" win!";
+        C = C+1;
+    } 
+    if (b == "X" && e == "X" && h == "X" && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Player "+D+" win!";
+        C = C+1;
+    } 
+    if (c == "X" && f == "X" && i == "X" && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Player "+D+" win!";
+        C = C+1;
+    } 
+    if (a == "X" && e == "X" && i == "X" && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Player "+D+" win!";
+        C = C+1;
+    } 
+    if (c == "X" && e == "X" && g == "X" && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Player "+D+" win!";
+        C = C+1;
+    }
+    if (a == "O" && b == "O" && c == "O" && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Player "+E+" win!";
+        C = C+1;
+    } 
+    if (d == "O" && e == "O" && f == "O" && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Player "+E+" win!";
+        C = C+1;
+    } 
+    if (g == "O" && h == "O" && i == "O" && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Player "+E+" win!";
+        C = C+1;
+    } 
+    if (a == "O" && d == "O" && g == "O" && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Player "+E+" win!";
+        C = C+1;
+    } 
+    if (b == "O" && e == "O" && h == "O" && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Player "+E+" win!";
+        C = C+1;
+    } 
+    if (c == "O" && f == "O" && i == "O" && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Player "+E+" win!";
+        C = C+1;
+    } 
+    if (a == "O" && e == "O" && i == "O" && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Player "+E+" win!";
+        C = C+1;
+    }
+    if (c == "O" && e == "O" && g == "O" && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Player "+E+" win!";
+        C = C+1;
+    
+}}
+    if (event0.keyCode === 96){{
+    D = (Math.floor(Math.random()*2)+1)*1;    
+    document.getElementById("wf").innerHTML = "first hand:"+D;
+    E = 3 - D ;
+}}
+    if (event0.keyCode === 32){
+    A = 0;
+    B = 0;
+    C = 0;
+    D = 1;
+    E = 2;
+    F = 0;
+    aa = 0;
+    bb = 0;
+    cc = 0;
+    dd = 0;
+    ee = 0;
+    ff = 0;
+    gg = 0;
+    hh = 0;
+    ii = 0;
+    document.getElementById('wf').innerHTML = "first hand:";
+    document.getElementById('kone').value = "";
+    document.getElementById('ktwo').value = "";
+    document.getElementById('kthree').value = "";
+    document.getElementById('kfour').value = "";
+    document.getElementById('kfive').value = "";
+    document.getElementById('ksix').value = "";
+    document.getElementById('kseven').value = "";
+    document.getElementById('keight').value = "";
+    document.getElementById('knine').value = "";
+    document.getElementById('game over').innerHTML = "";
+}})
+        </script>
+    </body>
+    </html>
