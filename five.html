@@ -1,0 +1,439 @@
+<html lang="en">
+    <head>
+        <!--make a conclusion,and what I learnt though this project-->
+        <meta charset="UTF-8">
+        <title>five</title>
+         <style>
+        .block{
+            width: 10%;
+            height: 5%;
+            font-size: large;
+        }
+        input{
+            text-align: center;
+        }
+    </style>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+            table{width: 800px;margin: 30px auto;}
+            table tr td{ width: 120px;height: 120px;text-align: center;line-height: 120px;}
+            td input[type=button]{width: 99%;height: 99%;font-size: 40px;background: #ddd;border: none;}
+            #show{margin-bottom: 10px;}
+            .btn:hover {background: #ccc;}
+        
+    </style>
+    </head>
+    <body bgcolor="grey">
+        <p style="font-size: x-large;text-align: center;" id="wf">Please draw to start the game.</p>
+        <center><button class="block" onclick="whofirst()">draw</button></center>
+            <center> <table align="center" cellspacing="5" cellpadding="5">
+                 <tbody>
+                     <tr>
+                         <td><input class="btn" type="button" id="k1" onclick="f1();gameover()"  ></td>
+                         <td><input class="btn" type="button" id="k2" onclick="f2();gameover()"  ></td>
+                         <td><input class="btn" type="button" id="k3" onclick="f3();gameover()"  ></td>
+                         <td><input class="btn" type="button" id="k4" onclick="f4();gameover()"  ></td>
+                         <td><input class="btn" type="button" id="k5" onclick="f5();gameover()"  ></td>
+                     </tr>
+                     <tr>
+                        <td><input class="btn" type="button" id="k6"  onclick="f6();gameover()"  ></td>
+                        <td><input class="btn" type="button" id="k7"  onclick="f7();gameover()"  ></td>
+                        <td><input class="btn" type="button" id="k8"  onclick="f8();gameover()"  ></td>
+                        <td><input class="btn" type="button" id="k9"  onclick="f9();gameover()"  ></td>
+                        <td><input class="btn" type="button" id="k10" onclick="f10();gameover()" ></td>
+                    </tr>
+                    <tr>
+                        <td><input class="btn" type="button" id="k11" onclick="f11();gameover()" ></td>
+                        <td><input class="btn" type="button" id="k12" onclick="f12();gameover()" ></td>
+                        <td><input class="btn" type="button" id="k13" onclick="f13();gameover()" ></td>
+                        <td><input class="btn" type="button" id="k14" onclick="f14();gameover()" ></td>
+                        <td><input class="btn" type="button" id="k15" onclick="f15();gameover()" ></td>
+                    </tr>
+                    <tr>
+                        <td><input class="btn" type="button" id="k16" onclick="f16();gameover()" ></td>
+                        <td><input class="btn" type="button" id="k17" onclick="f17();gameover()" ></td>
+                        <td><input class="btn" type="button" id="k18" onclick="f18();gameover()" ></td>
+                        <td><input class="btn" type="button" id="k19" onclick="f19();gameover()" ></td>
+                        <td><input class="btn" type="button" id="k20" onclick="f20();gameover()" ></td>
+                    </tr>
+                    <tr>
+                        <td><input class="btn" type="button" id="k21" onclick="f21();gameover()" ></td>
+                        <td><input class="btn" type="button" id="k22" onclick="f22();gameover()" ></td>
+                        <td><input class="btn" type="button" id="k23" onclick="f23();gameover()" ></td>
+                        <td><input class="btn" type="button" id="k24" onclick="f24();gameover()" ></td>
+                        <td><input class="btn" type="button" id="k25" onclick="f25();gameover()" ></td>
+                    </tr>
+                 </tbody>
+            </table>
+        </center>
+<script>
+let v1 = 0;
+let v2 = 0;
+let v3 = 0;
+let v4 = 0;
+let v5 = 0;
+let v6 = 0;
+let v7 = 0;
+let v8 = 0;
+let v9 = 0;
+let v10 = 0;
+let v11 = 0;
+let v12 = 0;
+let v13 = 0;
+let v14 = 0;
+let v15 = 0;
+let v16 = 0;
+let v17 = 0;
+let v18 = 0;
+let v19 = 0;
+let v20 = 0;
+let v21 = 0;
+let v22 = 0;
+let v23 = 0;
+let v24 = 0;
+let v25 = 0;
+let o = "O";
+let x = "X";
+let turn = 0;
+let count = 0;
+var round;
+var whof;
+
+function whofirst(){
+    whof = (Math.floor(Math.random()*2)+1)*1;    
+    document.getElementById("wf").innerHTML = "first hand:"+whof;
+    round = whof;
+};
+function f1(){
+    if (round == 1 && v1 == ""){
+        document.getElementById("k1").value = o;   
+        v1 = v1 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v1 == ""){
+        document.getElementById("k1").value = x;
+        v1 = v1 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f2(){
+    if (round == 1 && v2 == ""){
+        document.getElementById("k2").value = o;   
+        v2 = v2 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v2 == ""){
+        document.getElementById("k2").value = x;
+        v2 = v2 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f3(){
+    if (round == 1 && v3 == ""){
+        document.getElementById("k3").value = o;   
+        v3 = v3 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v3 == ""){
+        document.getElementById("k3").value = x;
+        v3 = v3 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f4(){
+    if (round == 1 && v4 == ""){
+        document.getElementById("k4").value = o;   
+        v4 = v4 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v4 == ""){
+        document.getElementById("k4").value = x;
+        v4 = v4 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f5(){
+    if (round == 1 && v5 == ""){
+        document.getElementById("k5").value = o;   
+        v5 = v5 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v5 == ""){
+        document.getElementById("k5").value = x;
+        v5 = v5 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f6(){
+    if (round == 1 && v6 == ""){
+        document.getElementById("k6").value = o;   
+        v6 = v6 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v6 == ""){
+        document.getElementById("k6").value = x;
+        v6 = v6 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f7(){
+    if (round == 1 && v7 == ""){
+        document.getElementById("k7").value = o;   
+        v7 = v7 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v7 == ""){
+        document.getElementById("k7").value = x;
+        v7 = v7 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f8(){
+    if (round == 1 && v8 == ""){
+        document.getElementById("k8").value = o;   
+        v8 = v8 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v8 == ""){
+        document.getElementById("k8").value = x;
+        v8 = v8 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f9(){
+    if (round == 1 && v9 == ""){
+        document.getElementById("k9").value = o;   
+        v9 = v9 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v9 == ""){
+        document.getElementById("k9").value = x;
+        v9 = v9 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f10(){
+    if (round == 1 && v10 == ""){
+        document.getElementById("k10").value = o;   
+        v10 = v10 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v10 == ""){
+        document.getElementById("k10").value = x;
+        v10 = v10 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f11(){
+    if (round == 1 && v11 == ""){
+        document.getElementById("k11").value = o;   
+        v11 = v11 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v11 == ""){
+        document.getElementById("k11").value = x;
+        v11 = v11 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f12(){
+    if (round == 1 && v12 == ""){
+        document.getElementById("k12").value = o;   
+        v12 = v12 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v12 == ""){
+        document.getElementById("k12").value = x;
+        v12 = v12 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f13(){
+    if (round == 1 && v13 == ""){
+        document.getElementById("k13").value = o;   
+        v13 = v13 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v13 == ""){
+        document.getElementById("k13").value = x;
+        v13 = v13 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f14(){
+    if (round == 1 && v14 == ""){
+        document.getElementById("k14").value = o;   
+        v14 = v14 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v14 == ""){
+        document.getElementById("k14").value = x;
+        v14 = v14 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f15(){
+    if (round == 1 && v15 == ""){
+        document.getElementById("k15").value = o;   
+        v15 = v15 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v15 == ""){
+        document.getElementById("k15").value = x;
+        v15 = v15 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f16(){
+    if (round == 1 && v16 == ""){
+        document.getElementById("k16").value = o;   
+        v16 = v16 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v16 == ""){
+        document.getElementById("k16").value = x;
+        v16 = v16 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f17(){
+    if (round == 1 && v17 == ""){
+        document.getElementById("k17").value = o;   
+        v17 = v17 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v17 == ""){
+        document.getElementById("k17").value = x;
+        v17 = v17 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f18(){
+    if (round == 1 && v18 == ""){
+        document.getElementById("k18").value = o;   
+        v18 = v18 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v18 == ""){
+        document.getElementById("k18").value = x;
+        v18 = v18 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f19(){
+    if (round == 1 && v19 == ""){
+        document.getElementById("k19").value = o;   
+        v19 = v19 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v19 == ""){
+        document.getElementById("k19").value = x;
+        v19 = v19 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f20(){
+    if (round == 1 && v20 == ""){
+        document.getElementById("k20").value = o;   
+        v20 = v20 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v20 == ""){
+        document.getElementById("k20").value = x;
+        v20 = v20 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f21(){
+    if (round == 1 && v21 == ""){
+        document.getElementById("k21").value = o;   
+        v21 = v21 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v21 == ""){
+        document.getElementById("k21").value = x;
+        v21 = v21 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f22(){
+    if (round == 1 && v2 == ""){
+        document.getElementById("k22").value = o;   
+        v22 = v22 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v22 == ""){
+        document.getElementById("k22").value = x;
+        v22 = v22 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f23(){
+    if (round == 1 && v23 == ""){
+        document.getElementById("k23").value = o;   
+        v23 = v23 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v23 == ""){
+        document.getElementById("k23").value = x;
+        v23 = v23 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f24(){
+    if (round == 1 && v24 == ""){
+        document.getElementById("k24").value = o;   
+        v24 = v24 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v24 == ""){
+        document.getElementById("k24").value = x;
+        v24 = v24 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function f25(){
+    if (round == 1 && v25 == ""){
+        document.getElementById("k25").value = o;   
+        v25 = v25 +1;
+        round = 3 - round;
+        turn = turn + 1;
+    }if (round == 2 && v25 == ""){
+        document.getElementById("k25").value = x;
+        v25 = v25 + 1;
+        round = 3 - round;
+        turn = turn + 1;
+    }
+};
+function gameover(){   
+    if ((turn == 25)&&(count == 0)){
+        console.log(gameover);
+      document.getElementById("wf").innerHTML = "Game over!";
+    count = count + 1;
+    }
+};
+</script>
