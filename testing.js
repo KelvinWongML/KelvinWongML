@@ -36,3 +36,8 @@ function addfellow(list){
 }
 //learn about array , concept of 'Call By Sharing' -20/5/2022
 
+var Astring = 'abcde';
+var Bnumber = 1018;
+var Cnull = null ;  
+//learn about function of console -23/5/2022
+
