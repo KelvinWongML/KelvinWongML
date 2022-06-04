@@ -1,6 +1,5 @@
 <html lang="en">
     <head>
-        <!--make a conclusion,and what I learnt though this project-->
         <meta charset="UTF-8">
         <title>five</title>
          <style>
@@ -29,52 +28,52 @@
             <center> <table align="center" cellspacing="5" cellpadding="5">
                  <tbody>
                      <tr>
-                         <td><input class="btn" type="button" id="k1" onclick="f1(1);gameover()"  ></td>
-                         <td><input class="btn" type="button" id="k2" onclick="f1(2);gameover()"  ></td>
-                         <td><input class="btn" type="button" id="k3" onclick="f1(3);gameover()"  ></td>
-                         <td><input class="btn" type="button" id="k4" onclick="f1(4);gameover()"  ></td>
-                         <td><input class="btn" type="button" id="k5" onclick="f1(5);gameover()"  ></td>
+                         <td><input class="btn" type="button" id="k1" onclick="f1(1)" ></td>
+                         <td><input class="btn" type="button" id="k2" onclick="f1(2)" ></td>
+                         <td><input class="btn" type="button" id="k3" onclick="f1(3)" ></td>
+                         <td><input class="btn" type="button" id="k4" onclick="f1(4)" ></td>
+                         <td><input class="btn" type="button" id="k5" onclick="f1(5)" ></td>
                      </tr>
                      <tr>
-                        <td><input class="btn" type="button" id="k6"  onclick="f1(6);gameover()"  ></td>
-                        <td><input class="btn" type="button" id="k7"  onclick="f1(7);gameover()"  ></td>
-                        <td><input class="btn" type="button" id="k8"  onclick="f1(8);gameover()"  ></td>
-                        <td><input class="btn" type="button" id="k9"  onclick="f1(9);gameover()"  ></td>
-                        <td><input class="btn" type="button" id="k10" onclick="f1(10);gameover()" ></td>
+                        <td><input class="btn" type="button" id="k6"  onclick="f1(6)" ></td>
+                        <td><input class="btn" type="button" id="k7"  onclick="f1(7)" ></td>
+                        <td><input class="btn" type="button" id="k8"  onclick="f1(8)" ></td>
+                        <td><input class="btn" type="button" id="k9"  onclick="f1(9)" ></td>
+                        <td><input class="btn" type="button" id="k10" onclick="f1(10)"></td>
                     </tr>
                     <tr>
-                        <td><input class="btn" type="button" id="k11" onclick="f1(11);gameover()" ></td>
-                        <td><input class="btn" type="button" id="k12" onclick="f1(12);gameover()" ></td>
-                        <td><input class="btn" type="button" id="k13" onclick="f1(13);gameover()" ></td>
-                        <td><input class="btn" type="button" id="k14" onclick="f1(14);gameover()" ></td>
-                        <td><input class="btn" type="button" id="k15" onclick="f1(15);gameover()" ></td>
+                        <td><input class="btn" type="button" id="k11" onclick="f1(11)"></td>
+                        <td><input class="btn" type="button" id="k12" onclick="f1(12)"></td>
+                        <td><input class="btn" type="button" id="k13" onclick="f1(13)"></td>
+                        <td><input class="btn" type="button" id="k14" onclick="f1(14)"></td>
+                        <td><input class="btn" type="button" id="k15" onclick="f1(15)"></td>
                     </tr>
                     <tr>
-                        <td><input class="btn" type="button" id="k16" onclick="f1(16);gameover()" ></td>
-                        <td><input class="btn" type="button" id="k17" onclick="f1(17);gameover()" ></td>
-                        <td><input class="btn" type="button" id="k18" onclick="f1(18);gameover()" ></td>
-                        <td><input class="btn" type="button" id="k19" onclick="f1(19);gameover()" ></td>
-                        <td><input class="btn" type="button" id="k20" onclick="f1(20);gameover()" ></td>
+                        <td><input class="btn" type="button" id="k16" onclick="f1(16)"></td>
+                        <td><input class="btn" type="button" id="k17" onclick="f1(17)"></td>
+                        <td><input class="btn" type="button" id="k18" onclick="f1(18)"></td>
+                        <td><input class="btn" type="button" id="k19" onclick="f1(19)"></td>
+                        <td><input class="btn" type="button" id="k20" onclick="f1(20)"></td>
                     </tr>
                     <tr>
-                        <td><input class="btn" type="button" id="k21" onclick="f1(21);gameover()" ></td>
-                        <td><input class="btn" type="button" id="k22" onclick="f1(22);gameover()" ></td>
-                        <td><input class="btn" type="button" id="k23" onclick="f1(23);gameover()" ></td>
-                        <td><input class="btn" type="button" id="k24" onclick="f1(24);gameover()" ></td>
-                        <td><input class="btn" type="button" id="k25" onclick="f1(25);gameover()" ></td>
+                        <td><input class="btn" type="button" id="k21" onclick="f1(21)"></td>
+                        <td><input class="btn" type="button" id="k22" onclick="f1(22)"></td>
+                        <td><input class="btn" type="button" id="k23" onclick="f1(23)"></td>
+                        <td><input class="btn" type="button" id="k24" onclick="f1(24)"></td>
+                        <td><input class="btn" type="button" id="k25" onclick="f1(25)"></td>
                     </tr>
                  </tbody>
             </table>
+            <p style="font-size: x-large;text-align: center;" id="gameover"></p>
         </center>
 <script>
 let o = "O";
 let x = "X";
 var k = 'k';
-let v = "v";    
+var v ;    
 let turn = 0;
-let count = 0;
-var round = 0;
-var whof;
+var round = 1;
+var whof ;
 
 function whofirst(){
     whof = (Math.floor(Math.random()*2)+1)*1;    
@@ -83,25 +82,21 @@ function whofirst(){
 };
 function f1(num){   
     let v = document.getElementById(k + num).textContent;
-    console.log(v);
-    if (v == ""){
-    if (round == 1){
+      if (v == ""){
+        if (round == 1){
             round = 3 - round;
+            turn ++;
             document.getElementById(k + num).value = o;
             document.getElementById(k + num).textContent = o;
-        }else{
+          }else{
             round = 3 - round;
+            turn ++;
             document.getElementById(k + num).value = x;
             document.getElementById(k + num).textContent = x;
-        };
-    };
-};
-
-function gameover(){   
-    if ((turn == 25)&&(count == 0)){
-        console.log(gameover);
-      document.getElementById("wf").innerHTML = "Game over!";
-    count = count + 1;
-    }
+          };
+          if (turn === 25){
+                document.getElementById("gameover").innerHTML = 'GAME OVER!';
+            };
+      };
 };
 </script>
