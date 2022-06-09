@@ -72,14 +72,43 @@ function whofirst() {
     document.getElementById("wf").innerHTML = "first hand:"+D;
     E = 3 - D ;
 }
-
 document.addEventListener("keydown", function(event0) {
-    if (event0.keyCode > 1){
-      if ((F ==　8) && (C == 0)) {
-        document.getElementById("game over").innerHTML = "Game Over";
-        C = C + 1;
-    } 
-}
+    if (event0.keyCode === 32){
+    A = 0;
+    B = 0;
+    C = 0;
+    D = 1;
+    E = 2;
+    F = 0;
+    aa = 0;
+    bb = 0;
+    cc = 0;
+    dd = 0;
+    ee = 0;
+    ff = 0;
+    gg = 0;
+    hh = 0;
+    ii = 0;
+    document.getElementById('wf').innerHTML = "first hand:";
+    document.getElementById('kone').value = "";
+    document.getElementById('ktwo').value = "";
+    document.getElementById('kthree').value = "";
+    document.getElementById('kfour').value = "";
+    document.getElementById('kfive').value = "";
+    document.getElementById('ksix').value = "";
+    document.getElementById('kseven').value = "";
+    document.getElementById('keight').value = "";
+    document.getElementById('knine').value = "";
+    document.getElementById('game over').innerHTML = "";
+} ;
+
+if (event0.keyCode === 96){{
+    D = (Math.floor(Math.random()*2)+1)*1;    
+    document.getElementById("wf").innerHTML = "first hand:"+D;
+    E = 3 - D ;
+}}
+   ;
+    
     if (event0.keyCode === 103){
     if (B == 0 &&(aa == 0)) {
         A = A+1;
@@ -232,7 +261,7 @@ document.addEventListener("keydown", function(event0) {
         }
     }
     }
-    if (event0.keyCode >1){
+    
     var a,b,c,d,e,f,g,h,i;
     a = document.getElementById('kone').value;
     b = document.getElementById('ktwo').value;
@@ -307,40 +336,16 @@ document.addEventListener("keydown", function(event0) {
         document.getElementById("game over").innerHTML = "Player "+E+" win!";
         C = C+1;
     
-}}
-    if (event0.keyCode === 96){{
-    D = (Math.floor(Math.random()*2)+1)*1;    
-    document.getElementById("wf").innerHTML = "first hand:"+D;
-    E = 3 - D ;
-}}
-    if (event0.keyCode === 32){
-    A = 0;
-    B = 0;
-    C = 0;
-    D = 1;
-    E = 2;
-    F = 0;
-    aa = 0;
-    bb = 0;
-    cc = 0;
-    dd = 0;
-    ee = 0;
-    ff = 0;
-    gg = 0;
-    hh = 0;
-    ii = 0;
-    document.getElementById('wf').innerHTML = "first hand:";
-    document.getElementById('kone').value = "";
-    document.getElementById('ktwo').value = "";
-    document.getElementById('kthree').value = "";
-    document.getElementById('kfour').value = "";
-    document.getElementById('kfive').value = "";
-    document.getElementById('ksix').value = "";
-    document.getElementById('kseven').value = "";
-    document.getElementById('keight').value = "";
-    document.getElementById('knine').value = "";
-    document.getElementById('game over').innerHTML = "";
-}})
+}
+if (event0.keyCode > 1){
+      if ((F == 9) && (C == 0)) {
+        document.getElementById("game over").innerHTML = "Game Over";
+        C = C + 1;
+    } 
+};
+});
+
+    
         </script>
     </body>
     </html>
