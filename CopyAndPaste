@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy</title>
+</head>
+<body>
+    <center>
+        <p>What do you want to copy?</p>
+        Type here:<input type="text" id="WORDS">
+        <br><br>
+        <p>How many times do you want to copy?</p>
+        Enter here:<input type="number" id="TIMES" min="2" value="2">
+        <br><br>
+        Interlance?
+        <input type="submit" value="Yes" onclick="copy1()">
+        <input type="submit" value="No" onclick="copy2()">
+        <hr>
+        <textarea name="result" id="RESULT" disabled style="border:solid;font-size: x-small"  rows="15" cols="100" ></textarea>
+    </center>
+    <script>
+        let i;
+        function copy1(){
+            document.getElementById('RESULT').innerHTML = '';
+            for (let i = 1; i <= Number(document.getElementById('TIMES').value); i++){
+              let copyitem = document.getElementById('RESULT').value;
+              document.getElementById('RESULT').innerHTML = copyitem + document.getElementById('WORDS').value  + "\n";
+            };
+        };
+        function copy2(){
+            document.getElementById('RESULT').innerHTML = '';
+            for (let i = 1; i <= Number(document.getElementById('TIMES').value); i++){
+              let copyitem = document.getElementById('RESULT').value;
+              document.getElementById('RESULT').innerHTML = copyitem + document.getElementById('WORDS').value;
+            };
+        };
+    </script>
+</body>
+</html>
