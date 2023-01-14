@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <script src="website.js"></script>
+    <style>
+        .div1{
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            text-align: left;
+            padding: 20px;
+            display: none;
+            position: fixed;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        form{
+            background-color: #fefefe;
+            margin: 5% auto 15% auto; 
+            border: 1px solid #888;
+            height: 600px;
+            width: 500px; 
+            text-align: left;
+            padding: 20px;
+        }
+        input[type="text"], input[type="number"], input[type="email"]{
+            width: 300px;
+        }
+        input[type="button"], input[type="submit"]{
+            height: 30px;
+            width: 60px;
+        }
+        button{
+            height: 50px;
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+        <button onclick="document.getElementById('id1').style.display='block' ">Sign the form</button>
+            <div id="id1" class="div1">
+                <form action="" id="ff">
+                    <h1 style="text-align:center">Welcome</h1>
+                    <p>Please enter your personal information below to be our member:</p>
+                    <p>First Name:</p><input type="text" name="FirstName" id="FN" style="text-transform: capitalize" required>
+                    <p>Last Name:</p><input type="text" name="LastName" id="LN" style="text-transform: capitalize">
+                    <p>Age:</p><input type="number" name="Age" id="A" min="0">
+                    <p>Gender:</p>
+                    <select name="Gender" id="GE" required>
+                        <option value="" disabled selected>Please select...</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <p>Gmail:</p><input type="email" name="Gmail" id="GM"><br>
+                    <input type="checkbox" name="" id=""> Would you like to recieved our newest notice through your gmail?<br><br>
+                    <input type="submit" value="Submit" onclick="InputData()"><br><br>
+                    <input type="button" value="Cancel" onclick="document.getElementById('id1').style.display='none' ">
+                </form>
+            </div>
+    
+</body>
+</html>
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+var data = {
+    fname:'',
+    lname:'',
+    age:'',
+    gender:'customer',
+    gmail:''
+};
+function InputData(){
+    data.fname = document.getElementById('FN').value;
+    data.lname = document.getElementById('LN').value;
+    data.age = document.getElementById('A').value;
+    if (document.getElementById('GE').value == 'Male'){data.gender = 'Mr.'};
+    if (document.getElementById('GE').value == 'Female'){data.gender = 'Ms.'};
+    data.gmail = document.getElementById('GM').value;
+};
+window.onclick = function(event) {
+    if (event.target == document.getElementById('id1')) {
+        document.getElementById('id1').style.display = "none";
+    }
+}
