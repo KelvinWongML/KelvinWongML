@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="MySQL.js"></script>
+</head>
+
+<body>
+  <p>MySQL login system</p>
+  <input type="text" id="username" placeholder="Username"><br>
+  <input type="text" id="password" placeholder="password"><br>
+  <button
+    onclick="send(document.getElementById('username').value,document.getElementById('password').value, 0)">login</button><br>
+  <button onclick="send(document.getElementById('username').value,document.getElementById('password').value, 1)">Sign
+    up</button>
+  <p id="result"></p>
+</body>
+
+</html>
