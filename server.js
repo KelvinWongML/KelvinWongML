@@ -6,10 +6,10 @@ const mysql = require('mysql')
 
 checkDB = (data, ws) => {
   var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "kelvin(^^$",
-    database: "userinfo"
+    host: "",
+    user: "",
+    password: "",
+    database: ""
   });
 
   con.connect((err) => {
