@@ -16,5 +16,3 @@ ws.onclose = () => {
 ws.onmessage = event => {
   document.getElementById('result').innerHTML = `${event.data.toString('utf8')}`
 }
-
-
