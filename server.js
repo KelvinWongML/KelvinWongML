@@ -1,15 +1,15 @@
 const express = require('express')
 const SocketServer = require('ws').Server
 const mysql = require('mysql')
+const dotenv = require('dotenv').config()
 
-
-
+/*checkDB(data, ws) is for login and sign up processes*/
 checkDB = (data, ws) => {
   var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "userinfo"
+    host: dotenv.parsed.DB_HOST,
+    user: dotenv.parsed.DB_USER,
+    password: dotenv.parsed.DB_PASSWORD,
+    database: dotenv.parsed.DB_DATABASE
   });
 
   con.connect((err) => {
@@ -22,9 +22,7 @@ checkDB = (data, ws) => {
           if (Object.values(result[0])[0] == 1) {
             console.log('Client login.')
             ws.send('login successfully.')
-          } else {
-            ws.send('login unsuccessfully.')
-          }
+          } else { ws.send('login unsuccessfully.') }
           return;
         });
         break;
@@ -44,14 +42,11 @@ checkDB = (data, ws) => {
           return;
         });
         break;
-
-      default:
-        break;
     };
   });
 }
 
-
+/*Parts below are about communicating with cilent side*/
 const PORT = 3000
 
 const server = express()
