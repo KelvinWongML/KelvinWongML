@@ -95,56 +95,63 @@ def FindTS():
     print('pls enter the supply equation: (P = aQ + b)')
     a2, b2 = [eval(i) for i in input().split()]
     E = findE(a1, b1, a2, b2)
-    match int(input('What condition you got?\n0:Increase/decrease of quantity\n1:DWL\n2:Tax revenue/subsidy expense\n')):
-        case 0:
-            x = int(input('Increment = '))
-            amount = b1-b2-(a1+a2)*(int(E[1]) + x)
-            if amount > 0:
-                print('Amount of tax =', amount)
-                print('DWL =', 0.5*(amount)*abs(x))
-                print('Tax revenue =', amount*(int(E[1])+x))
-            else:
-                print('Amount of subsidy = ', -amount)
-                print('DWL =', 0.5*(-amount)*x)
-                print('Subsidy expense =', -amount*(int(E[1])+x))
-        case 1:
-            dwl = int(input('Given DWL: '))
-            a = a1+a2
-            b = b2-b1-(a1+a2)*E[1]
-            c = (b1-b2)*E[1]-2*dwl
-            x1 = ((b*b - 4*a*c)**0.5 - b)/(2*a)
-            x2 = (-(b*b - 4*a*c)**0.5 - b)/(2*a)
-            print('Quanity decrement(Tax) =', E[1]-x2)
-            print('Quanity increment(Subsidy) =', x1-E[1])
-        case 2:
-            if input('Tax or subsidy?(T/S) ') in 'Tt':
-                a = -a1-a2
-                b = b1-b2
-                c = int(input('Given tax revenue = '))*-1
-                x = ((b*b - 4*a*c)**0.5 - b)/(2*a)
-                print('Quanity decrement =', E[1]-x)
-                print('DWL =', 0.5*(b1-b2-(a1+a2)*x)*(E[1]-x))
-            else:
+    while (True):
+        match int(input('What condition you got?\n0:Increase/decrease of quantity\n1:DWL\n2:Tax revenue/subsidy expense\n')):
+            case 0:
+                x = int(input('Increment = '))
+                amount = b1-b2-(a1+a2)*(float(E[1]) + x)
+                if amount > 0:
+                    print('Amount of tax =', amount)
+                    print('DWL =', 0.5*(amount)*abs(x))
+                    print('Tax revenue =', amount*(float(E[1])+x))
+                else:
+                    print('Amount of subsidy = ', -amount)
+                    print('DWL =', 0.5*(-amount)*x)
+                    print('Subsidy expense =', -amount*(float(E[1])+x))
+            case 1:
+                dwl = float(input('Given DWL: '))
                 a = a1+a2
-                b = b2-b1
-                c = int(input('Given subsidy expense = '))*-1
+                b = b2-b1-(a1+a2)*E[1]
+                c = (b1-b2)*E[1]-2*dwl
                 x = ((b*b - 4*a*c)**0.5 - b)/(2*a)
-                print('Quanity increment =', x-E[1])
-                print('DWL =', 0.5*((a1+a2)*x+b2-b1)*(x-E[1]))
+                amount = abs((a1+a2)*(x)+b2-b1)
+                print('Amount =', amount)
+                print('Quanity change =', x-float(E[1]))
+                print('Tax revenue =', amount*(2*float(E[1])-x))
+                print('Subsidy expense =', amount*(float(x)))
+            case 2:
+                if input('Tax or subsidy?(T/S) ') in 'Tt':
+                    a = -a1-a2
+                    b = b1-b2
+                    c = float(input('Given tax revenue = '))*-1
+                    x = ((b*b - 4*a*c)**0.5 - b)/(2*a)
+                    print('Amount =', b1-b2-(a1+a2)*x)
+                    print('Quanity decrement =', E[1]-x)
+                    print('DWL =', 0.5*(b1-b2-(a1+a2)*x)*(E[1]-x))
+                else:
+                    a = a1+a2
+                    b = b2-b1
+                    c = float(input('Given subsidy expense = '))*-1
+                    x = ((b*b - 4*a*c)**0.5 - b)/(2*a)
+                    print('Amount =', (a1+a2)*(x)+b2-b1)
+                    print('Quanity increment =', x-E[1])
+                    print('DWL =', 0.5*((a1+a2)*x+b2-b1)*(x-E[1]))
+            case _:
+                break
     
         
 while(True):
     toq = input('type of question:\n0:TOT\n1:SD submission\n2:Surplus(Normal)\n3:Surplus(tax/subsidy)\n4:Finding tax/subsidy\n')
-    match int(toq):
-        case 0:
+    match toq:
+        case '0':
             TOT()
-        case 1:
+        case '1':
             sd()
-        case 2:
+        case '2':
             normalSD()
-        case 3:
+        case '3':
             TSSD()
-        case 4:
+        case '4':
             FindTS()
         case _:
             print('No such question, pls enter again.')
