@@ -1,0 +1,151 @@
+import numpy as np
+
+def TOT():
+    print('Pls enter data as:\na1\tb1\na2\tb2')
+    a1, c1, a2, c2 = [eval(x) for x in input().split()] 
+    m1, m2 = c1/a1, c2/a2
+    if m1 < m2:
+        print(f'If({a1}≤x≤{a1+a2}, {c2+m2*a1} - {c2}/{a2} x, 0≤x≤{a1}, {c1+c2} - {c1}/{a1} x)')
+    else:
+        print(f'If({a2}≤x≤{a1+a2}, {c1+m1*a2} - {c1}/{a1} x, 0≤x≤{a2}, {c2+c1} - {c2}/{a2} x)')
+    if input("need to find maximum profit?(Y/N):") in 'Yy':
+        x, y = int(input('Price of x: ')), int(input('Price of y: '))
+        if m1 < m2:
+            print((a1+a2)*x, (c1+c2)*y, a1*x+c2*y)
+        elif m1 > m2:
+            print((a1+a2)*x, (c1+c2)*y, a2*x+c1*y)
+
+def sd():
+    def price(list):
+        return abs(float(list[0])/float(list[1]))
+    t = input('finding eqution of demand/supply(d/s): ')
+   
+    if t in 'Dd':
+        print('Enter a, b in form of { Q = - aP + b } or "1" after finish entering.')
+        demand, res = [], ''
+        line = [eval(i) for i in input('line: ').split()]
+        while(line != [1]):
+            demand.append(line)
+            line = [eval(i) for i in input('line: ').split()]
+        demand.sort(key=price)
+        demand = [[float(i) for i in j] for j in demand]
+        for i in range(1, len(demand)):
+            demand[i][0] += demand[i-1][0]
+            demand[i][1] += demand[i-1][1]
+        for i in demand:
+            print(f'x = - {i[0]}y + {i[1]}')
+        
+    elif t in 'Ss':
+        print('Enter a, b in form of { Q = aP - b } or "1" after finish entering.')
+        supply, res = [], ''
+        line = [eval(i) for i in input('line: ').split()]
+        while(line != [1]):
+            supply.append(line)
+            line = [eval(i) for i in input('line: ').split()]
+        supply.sort(reverse=True, key=price)
+        supply = [[float(i) for i in j] for j in supply]
+        for i in range(1, len(supply)):
+            supply[i][0] += supply[i-1][0]
+            supply[i][1] += supply[i-1][1]
+        for i in supply:
+            print(f'x = {i[0]}y - {i[1]}')
+            
+def findE(a1, b1, a2, b2):
+    A = np.array([[1,a1],[1,-a2]])
+    B = np.array([b1,b2])
+    C = np.linalg.solve(A,B)
+    print(f'Equilibrium price level is {C[0]} and quantity is {C[1]}.')
+    return C
+
+def surplus(a1, b1, a2, b2):
+    C = findE(a1, b1, a2, b2)
+    print(f'consumer surplus = {(b1-C[0])*C[1]*0.5}')
+    print(f'producer surplus = {(C[0]-b2)*C[1]*0.5}')
+    print(f'total surplus = {(b1-b2)*C[1]*0.5}')
+    return C
+        
+def normalSD():
+    print('pls enter the demand equation: (P = - aQ + b)')
+    a1, b1 = [eval(i) for i in input().split()]
+    print('pls enter the supply equation: (P = aQ + b)')
+    a2, b2 = [eval(i) for i in input().split()]
+    surplus(a1, b1, a2, b2)
+
+def TSSD():
+    print('pls enter the demand equation: (P = - aQ + b)')
+    a1, b1 = [eval(i) for i in input().split()]
+    print('pls enter the supply equation: (P = aQ + b)')
+    a2, b2 = [eval(i) for i in input().split()]
+    E1 = findE(a1, b1, a2, b2)
+    print('pls enter tax/subsidy(T/S), bear by who(C/P), and its amount.')
+    ts, who, amount = input().split()
+    if ts in 'Tt':
+        if who in 'Cc':b1 -= float(amount)
+        if who in 'Pp':b2 += float(amount)
+    elif ts in 'Ss':
+        if who in 'Cc':b1 += float(amount)
+        if who in 'Pp':b1 -= float(amount)
+    E2 = surplus(a1, b1, a2, b2)
+    print(f'Tax Revenue: {float(amount)*E2[1]}')
+    print(f'DWL: {abs(float(amount)*(E1[1]-E2[1])/2)}')
+
+def FindTS():
+    print('pls enter the demand equation: (P = - aQ + b)')
+    a1, b1 = [eval(i) for i in input().split()]
+    print('pls enter the supply equation: (P = aQ + b)')
+    a2, b2 = [eval(i) for i in input().split()]
+    E = findE(a1, b1, a2, b2)
+    match int(input('What condition you got?\n0:Increase/decrease of quantity\n1:DWL\n2:Tax revenue/subsidy expense\n')):
+        case 0:
+            x = int(input('Increment = '))
+            amount = b1-b2-(a1+a2)*(int(E[1]) + x)
+            if amount > 0:
+                print('Amount of tax =', amount)
+                print('DWL =', 0.5*(amount)*abs(x))
+                print('Tax revenue =', amount*(int(E[1])+x))
+            else:
+                print('Amount of subsidy = ', -amount)
+                print('DWL =', 0.5*(-amount)*x)
+                print('Subsidy expense =', -amount*(int(E[1])+x))
+        case 1:
+            dwl = int(input('Given DWL: '))
+            a = a1+a2
+            b = b2-b1-(a1+a2)*E[1]
+            c = (b1-b2)*E[1]-2*dwl
+            x1 = ((b*b - 4*a*c)**0.5 - b)/(2*a)
+            x2 = (-(b*b - 4*a*c)**0.5 - b)/(2*a)
+            print('Quanity decrement(Tax) =', E[1]-x2)
+            print('Quanity increment(Subsidy) =', x1-E[1])
+        case 2:
+            if input('Tax or subsidy?(T/S) ') in 'Tt':
+                a = -a1-a2
+                b = b1-b2
+                c = int(input('Given tax revenue = '))*-1
+                x = ((b*b - 4*a*c)**0.5 - b)/(2*a)
+                print('Quanity decrement =', E[1]-x)
+                print('DWL =', 0.5*(b1-b2-(a1+a2)*x)*(E[1]-x))
+            else:
+                a = a1+a2
+                b = b2-b1
+                c = int(input('Given subsidy expense = '))*-1
+                x = ((b*b - 4*a*c)**0.5 - b)/(2*a)
+                print('Quanity increment =', x-E[1])
+                print('DWL =', 0.5*((a1+a2)*x+b2-b1)*(x-E[1]))
+    
+        
+while(True):
+    toq = input('type of question:\n0:TOT\n1:SD submission\n2:Surplus(Normal)\n3:Surplus(tax/subsidy)\n4:Finding tax/subsidy\n')
+    match int(toq):
+        case 0:
+            TOT()
+        case 1:
+            sd()
+        case 2:
+            normalSD()
+        case 3:
+            TSSD()
+        case 4:
+            FindTS()
+        case _:
+            print('No such question, pls enter again.')
+    print('---------------------------------------------')
