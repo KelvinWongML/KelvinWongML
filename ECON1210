@@ -84,7 +84,7 @@ def TSSD():
         if who in 'Pp':b2 += float(amount)
     elif ts in 'Ss':
         if who in 'Cc':b1 += float(amount)
-        if who in 'Pp':b1 -= float(amount)
+        if who in 'Pp':b2 -= float(amount)
     E2 = surplus(a1, b1, a2, b2)
     print(f'Tax Revenue: {float(amount)*E2[1]}')
     print(f'DWL: {abs(float(amount)*(E1[1]-E2[1])/2)}')
