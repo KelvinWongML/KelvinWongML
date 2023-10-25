@@ -4,6 +4,7 @@ def TOT():
     print('Pls enter data as:\na1\tb1\na2\tb2')
     a1, c1, a2, c2 = [eval(x) for x in input().split()] 
     m1, m2 = c1/a1, c2/a2
+    x, y, maxPro = 0, 0, 0
     if m1 < m2:
         print(f'If({a1}≤x≤{a1+a2}, {c2+m2*a1} - {c2}/{a2} x, 0≤x≤{a1}, {c1+c2} - {c1}/{a1} x)')
     else:
@@ -12,8 +13,16 @@ def TOT():
         x, y = int(input('Price of x: ')), int(input('Price of y: '))
         if m1 < m2:
             print((a1+a2)*x, (c1+c2)*y, a1*x+c2*y)
+            maxPro = max((a1+a2)*x, (c1+c2)*y, a1*x+c2*y)
+            print('maximum profit = ', maxPro)
         elif m1 > m2:
             print((a1+a2)*x, (c1+c2)*y, a2*x+c1*y)
+            maxPro = max((a1+a2)*x, (c1+c2)*y, a2*x+c1*y)
+            print('maximum profit = ', maxPro)
+    if input('Any consumption?(X/Y): ') in 'Xx':
+        print('maximum consumption on y = ', (maxPro-x*(float(input('Quantity: '))))/y)
+    else:
+        print('maximum consumption on x = ', (maxPro-y*(float(input('Quantity: '))))/x)
 
 def sd():
     def price(list):
@@ -70,6 +79,7 @@ def normalSD():
     print('pls enter the supply equation: (P = aQ + b)')
     a2, b2 = [eval(i) for i in input().split()]
     surplus(a1, b1, a2, b2)
+    print(f'Mid-point = ({b1/2},{b1/(a1*2)})')
 
 def TSSD():
     print('pls enter the demand equation: (P = - aQ + b)')
@@ -86,7 +96,7 @@ def TSSD():
         if who in 'Cc':b1 += float(amount)
         if who in 'Pp':b2 -= float(amount)
     E2 = surplus(a1, b1, a2, b2)
-    print(f'Tax Revenue: {float(amount)*E2[1]}')
+    print(f'Tax Revenue/Subsidy Expense: {float(amount)*E2[1]}')
     print(f'DWL: {abs(float(amount)*(E1[1]-E2[1])/2)}')
 
 def FindTS():
@@ -96,13 +106,18 @@ def FindTS():
     a2, b2 = [eval(i) for i in input().split()]
     E = findE(a1, b1, a2, b2)
     while (True):
-        match int(input('What condition you got?\n0:Increase/decrease of quantity\n1:DWL\n2:Tax revenue/subsidy expense\n')):
+        match int(input('''What condition you got?
+0:Increase/decrease of quantity
+1:DWL
+2:Tax revenue/subsidy expense
+3:Find maximum tax
+''')):
             case 0:
                 x = int(input('Increment = '))
                 amount = b1-b2-(a1+a2)*(float(E[1]) + x)
                 if amount > 0:
                     print('Amount of tax =', amount)
-                    print('DWL =', 0.5*(amount)*abs(x))
+                    print('DWL =', 0.5*(amount)*x)
                     print('Tax revenue =', amount*(float(E[1])+x))
                 else:
                     print('Amount of subsidy = ', -amount)
@@ -136,12 +151,20 @@ def FindTS():
                     print('Amount =', (a1+a2)*(x)+b2-b1)
                     print('Quanity increment =', x-E[1])
                     print('DWL =', 0.5*((a1+a2)*x+b2-b1)*(x-E[1]))
+            case 3:
+                print('Tax with maximum revenue = ', (b1-b2)/2)
             case _:
                 break
     
         
 while(True):
-    toq = input('type of question:\n0:TOT\n1:SD submission\n2:Surplus(Normal)\n3:Surplus(tax/subsidy)\n4:Finding tax/subsidy\n')
+    toq = input('''type of question:
+0:TOT
+1:SD submission
+2:Surplus(Normal)
+3:Surplus(tax/subsidy)
+4:Finding tax/subsidy
+''')
     match toq:
         case '0':
             TOT()
