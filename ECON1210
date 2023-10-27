@@ -68,9 +68,9 @@ def findE(a1, b1, a2, b2):
 
 def surplus(a1, b1, a2, b2):
     C = findE(a1, b1, a2, b2)
-    print(f'consumer surplus = {(b1-C[0])*C[1]*0.5}')
-    print(f'producer surplus = {(C[0]-b2)*C[1]*0.5}')
-    print(f'total surplus = {(b1-b2)*C[1]*0.5}')
+    print('consumer surplus\t=', (b1-C[0])*C[1]*0.5)
+    print('producer surplus\t=', (C[0]-b2)*C[1]*0.5)
+    print('total surplus\t\t=', (b1-b2)*C[1]*0.5)
     return C
         
 def normalSD():
@@ -116,13 +116,13 @@ def FindTS():
                 x = int(input('Increment = '))
                 amount = b1-b2-(a1+a2)*(float(E[1]) + x)
                 if amount > 0:
-                    print('Amount of tax =', amount)
-                    print('DWL =', 0.5*(amount)*x)
-                    print('Tax revenue =', amount*(float(E[1])+x))
+                    print('Amount of tax\t=', amount)
+                    print('DWL\t\t=', 0.5*(amount)*x)
+                    print('Tax revenue\t=', amount*(float(E[1])+x))
                 else:
-                    print('Amount of subsidy = ', -amount)
-                    print('DWL =', 0.5*(-amount)*x)
-                    print('Subsidy expense =', -amount*(float(E[1])+x))
+                    print('Amount of subsidy\t=', -amount)
+                    print('DWL\t\t\t=', 0.5*(-amount)*x)
+                    print('Subsidy expense\t\t=', -amount*(float(E[1])+x))
             case 1:
                 dwl = float(input('Given DWL: '))
                 a = a1+a2
@@ -130,31 +130,32 @@ def FindTS():
                 c = (b1-b2)*E[1]-2*dwl
                 x = ((b*b - 4*a*c)**0.5 - b)/(2*a)
                 amount = abs((a1+a2)*(x)+b2-b1)
-                print('Amount =', amount)
-                print('Quanity change =', x-float(E[1]))
-                print('Tax revenue =', amount*(2*float(E[1])-x))
-                print('Subsidy expense =', amount*(float(x)))
+                print('Amount\t=', amount)
+                print('Quanity change\t=', x-float(E[1]))
+                print('Tax revenue\t=', amount*(2*float(E[1])-x))
+                print('Subsidy expense\t=', amount*(float(x)))
             case 2:
                 if input('Tax or subsidy?(T/S) ') in 'Tt':
                     a = -a1-a2
                     b = b1-b2
                     c = float(input('Given tax revenue = '))*-1
                     x = ((b*b - 4*a*c)**0.5 - b)/(2*a)
-                    print('Amount =', b1-b2-(a1+a2)*x)
-                    print('Quanity decrement =', E[1]-x)
-                    print('DWL =', 0.5*(b1-b2-(a1+a2)*x)*(E[1]-x))
+                    print('Amount\t\t\t=', b1-b2-(a1+a2)*x)
+                    print('Quanity decrement\t=', E[1]-x)
+                    print('DWL\t\t\t=', 0.5*(b1-b2-(a1+a2)*x)*(E[1]-x))
                 else:
                     a = a1+a2
                     b = b2-b1
                     c = float(input('Given subsidy expense = '))*-1
                     x = ((b*b - 4*a*c)**0.5 - b)/(2*a)
-                    print('Amount =', (a1+a2)*(x)+b2-b1)
-                    print('Quanity increment =', x-E[1])
-                    print('DWL =', 0.5*((a1+a2)*x+b2-b1)*(x-E[1]))
+                    print('Amount\t\t\t=', (a1+a2)*(x)+b2-b1)
+                    print('Quanity increment\t=', x-E[1])
+                    print('DWL\t\t\t=', 0.5*((a1+a2)*x+b2-b1)*(x-E[1]))
             case 3:
                 print('Tax with maximum revenue = ', (b1-b2)/2)
             case _:
                 break
+        print('--------------------------------------')
     
         
 while(True):
